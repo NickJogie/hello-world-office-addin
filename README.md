@@ -1,7 +1,10 @@
 ---
-Install - npm install
-Install Server - cd server && npm install
-Run - npm run outlook:all
+Install 
+- npm install
+Install Server 
+- cd server && npm install
+Run 
+- npm run outlook:all
 ---
 page_type: sample
 languages:
