@@ -25,6 +25,9 @@ module.exports = async (env, options) => {
     output: {
       clean: true,
     },
+    externals: {
+    './config': 'config'
+    },
     resolve: {
       extensions: [".ts", ".tsx", ".html", ".js"],
     },
@@ -59,6 +62,7 @@ module.exports = async (env, options) => {
         filename: "taskpane.html",
         template: "./src/taskpane/taskpane.html",
         chunks: ["polyfill", "taskpane"],
+        inject: false,
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -66,6 +70,7 @@ module.exports = async (env, options) => {
             from: "appPackage/assets/*",
             to: "assets/[name][ext][query]",
           },
+          { from: 'src/taskpane/office.js', to: 'office.js', },
           {
             from: "appPackage/manifest*.json",
             to: "[name]" + "[ext]",
